@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <title>About Me</title>
+        <link rel="stylesheet" href="assets/css/about.css">
+    </head>
+        <body>
+            <nav>
+                <div class="menu-mobile">
+                    <a href="#" onclick="showmenu()">Menu</a>
+                </div>
+                <ul id="menu">
+                    <li><a href="beranda.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html" target="_blank">CONTACT</a></li>
+                </ul>
+            </nav>
+            <section id="box-profile">
+                <div class="img-profile">
+                    <div class="photo" style="background-image: url(assets/img/Photo.jpg);"></div>
+                </div>
+                <div class="description">
+                    <h1 id="pname">Suci Ramadhani</h1>
+                    <a href="#input-form" class="button bg-green" onclick="editform()">Edit</a>
+                </div>
+                <div class="information">
+                    <div class="data">
+                        <p class="field">Age</p>
+                        <p id="page" class="text-grey">21</p>
+                    </div>
+                    <div class="data">
+                        <p class="field">Location</p>
+                        <p id="plocation" class="text-grey">Jl. Karib No. 34, Tamalanrea, Makassar 90245</p>
+                    </div>
+                </div>
+            </section>
+            <section id="input-form">
+                    <div class="form">
+                        <label>Name</label>
+                        <input id="inpname" type="text" placeholder="Masukkan nama Anda">
+                    </div>
+                    <div class="form">
+                        <label>Age</label>
+                        <input id="inpage" type="number" placeholder="Masukkan umur Anda">
+                    </div>
+                    <div class="form">
+                        <label>Location</label>
+                        <input id="inplocation" type="text" placeholder="Masukkan Lokasi Anda">
+                    </div>
+                    <div class="form">
+                        <input onclick="simpanform()" type="submit" name="submit" value="SUBMIT" class="bg-blue">
+                    </div>
+            </section>
+            <script>
+                var formmenu = document.getElementById("input-form");
+                formmenu.style.display = "none";
+
+                function editform(){
+                    if(formmenu.style.display === "none"){
+                        formmenu.style.display = "block";
+                    }
+                    else{
+                        formmenu.style.display = "none";
+                    }
+                    var name = document.getElementById("pname").innerHTML;
+                    var age = document.getElementById("page").innerHTML;
+                    var location = document.getElementById("plocation").innerHTML;
+                    
+                    document.getElementById("inpname").value = name;
+                    document.getElementById("inpage").value = age;
+                    document.getElementById("inplocation").value = location;  
+                }
+                function simpanform(){
+                    formmenu.style.display = "none";
+                    var name = document.getElementById("inpname").value;
+                    var age = document.getElementById("inpage").value;
+                    var location = document.getElementById("inplocation").value;
+                    
+                    document.getElementById("pname").innerHTML = name;      
+                    document.getElementById("page").innerHTML = age;        
+                    document.getElementById("plocation").innerHTML = location;  
+                }
+
+                function showmenu(){
+                    var menu = document.getElementById("menu");
+                    var box = document.getElementById("box-profile");
+
+                    if(menu.style.display === "block"){
+                        menu.style.display = "none";
+                        box.style.paddingTop = "0px";
+                    }
+                    else{
+                        menu.style.display = "block";
+                        box.style.paddingTop = "125px";
+                    }
+                }
+            
+            </script>
+        </body>
+</html>
